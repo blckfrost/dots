@@ -1,9 +1,0 @@
-{
-    "custom/wallchange": {
-        "format": "",
-        "exec": "echo ; echo 󰆊 switch wallpaper",
-        "on-click": "~/.config/hypr/scripts/swww_randomize.sh",
-        "interval": 86400, // once every day
-        "tooltip": true
-    }
-}

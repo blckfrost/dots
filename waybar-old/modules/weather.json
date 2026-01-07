@@ -1,8 +1,0 @@
-{
-    "custom/weather": {
-        "return-type": "json",
-        "exec": "~/.config/waybar/scripts/get_weather.sh Accra",
-        "tooltip": true,
-        "interval": 3600
-    }
-}
