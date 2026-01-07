@@ -1,0 +1,45 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+
+format = """$directory$line_break$character"""
+right_format = """$git_branch$git_status$git_state"""
+command_timeout = 200
+
+[package]
+disabled = true
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[!](red)"
+vimcmd_symbol = "[❮](green)"
+
+[directory]
+truncation_length = 5
+
+[directory.substitutions]
+"Documents" = " 󰈙 "
+"Downloads" = "  "
+"Music" = " "
+"Pictures" = "  "
+
+[golang]
+symbol = " "
+format = "[$symbol($version)](bold cyan)"
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = ' '
+
+[git_status]
+conflicted = "*"
+untracked = "*"
+modified = "*"
+staged = "s"
+renamed = "r"
+deleted = "d"
+stashed = "≡"
+
+[nodejs]
+disabled = true
+format = "[$symbol$version]($style)"
+detect_files = ["package.json"]

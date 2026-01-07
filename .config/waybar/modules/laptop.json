@@ -1,0 +1,62 @@
+{
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", ""],
+        "on-scroll-up": "brightnessctl set 7%+",
+        "on-scroll-down": "brightnessctl set 7%-",
+        "tooltip-format": "{percent}% "
+    },
+    "battery": {
+        "format": "{icon} {capacity}% ",
+        "format-charging": "<span color='#a6e3a1'>󱐋</span> <span color='#a6e3a1'>{icon}</span> <span color='#f9e2af'>{capacity}%</span> ",
+        "format-plugged": "<span color='#a6e3a1'>󰚥</span> <span color='#f9e2af'>{capacity}%</span> <span color='#a6e3a1'>{icon}</span>",
+        "format-full": "<span color='#a6e3a1'>{icon}</span> {capacity}%",
+        "format-icons": {
+            "default": [
+                "<span color='#f38ba8'>█▏▏▏▏▏▏▏▏▏</span>",
+                "<span color='#f38ba8'>██▏▏▏▏▏▏▏▏</span>",
+                "<span color='#fab387'>███▏▏▏▏▏▏▏</span>",
+                "<span color='#fab387'>████▏▏▏▏▏▏</span>",
+                "<span color='#f9e2af'>█████▏▏▏▏▏</span>",
+                "<span color='#f9e2af'>██████▏▏▏▏</span>",
+                "<span color='#a6e3a1'>███████▏▏▏</span>",
+                "<span color='#a6e3a1'>████████▏▏</span>",
+                "<span color='#a6e3a1'>█████████▏</span>",
+                "<span color='#a6e3a1'>██████████</span>"
+            ],
+            "charging": [
+                "█▏▏▏▏▏▏▏▏▏",
+                "██▏▏▏▏▏▏▏▏",
+                "███▏▏▏▏▏▏▏",
+                "████▏▏▏▏▏▏",
+                "█████▏▏▏▏▏",
+                "██████▏▏▏▏",
+                "███████▏▏▏",
+                "████████▏▏",
+                "█████████▏",
+                "██████████"
+            ]
+        },
+
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "interval": 10,
+        "tooltip-format": "{timeTo}\nCapacity: {capacity}%\nHealth: {health}%\nPower: {power}W\nCycles: {cycles}"
+    },
+    "network": {
+        "format-wifi": "<span color='#89b4fa'>{icon}</span> {essid}",
+        "format-ethernet": "<span color='#a6e3a1'>󰈀</span> Connected",
+        "format-disconnected": "<span color='#f38ba8'>󰖪</span> Disconnected",
+        "format-alt": "<span color='#89b4fa'>󰖩</span> {bandwidthUpBits} 󰁝 {bandwidthDownBits} 󰁅",
+        "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+        "interval": 5,
+        "tooltip-format": "Interface: {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}\nNetmask: {netmask}\nCIDR: {cidr}",
+        "on-click-right": "nm-connection-editor"
+    },
+    "group/laptop": {
+        "orientation": "horizontal",
+        "modules": ["battery", "backlight", "network"]
+    }
+}

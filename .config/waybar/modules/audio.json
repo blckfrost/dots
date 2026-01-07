@@ -1,0 +1,33 @@
+{
+    "pulseaudio": {
+        "format": "<span color='#89b4fa'>{icon}</span> {volume}%",
+        "format-muted": "<span color='#f38ba8'> XXXXX</span> ",
+        "format-icons": {
+            "headphone": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "hands-free": "󰏲",
+            "car": "",
+            "default": ["", " ", " "]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+    "pulseaudio#microphone": {
+        "format": "<span color='{microphone_color}'>{microphone_icon}</span>",
+        "format-source": "<span color='#a6e3a1'></span>",
+        "format-source-muted": "<span color='#f38ba8'></span>",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "tooltip-format": "Microphone: {source_volume}%\nDevice: {source_desc}",
+        "scroll-step": 5
+    },
+    "group/audio": {
+        "orientation": "horizontal",
+        "modules": ["pulseaudio"]
+    }
+}

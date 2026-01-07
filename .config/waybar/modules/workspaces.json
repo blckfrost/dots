@@ -1,0 +1,19 @@
+{
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "disable-scroll": false,
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1",
+
+        "persistent-workspaces": {
+            "*": [1, 2, 3]
+        }
+    },
+    "hyprland/window": {
+        "format": "{class}",
+        "max-length": 20,
+        "separate-outputs": true,
+        "icon": true,
+        "icon-size": 12
+    }
+}
