@@ -1,0 +1,11 @@
+/*
+ * vim:ft=less
+ */
+
+@import './swayosd-colors.css';
+
+window#osd {
+    border-radius: 999px;
+    border: none;
+    background: alpha(@theme_bg_color, 0.8);
+}

@@ -1,6 +1,0 @@
-{
-    "custom/cava_mviz": {
-        "exec": "~/.config/waybar/scripts/waybarcava.sh",
-        "format": "{}"
-    }
-}

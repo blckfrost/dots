@@ -1,0 +1,23 @@
+{
+    "clock": {
+        "format": "{:%H:%M}",
+        "interval": 1,
+        "timezone": "Africa/Accra",
+        "format-alt": "{:%H:%M - %a, %d %B %Y}",
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#f8f8'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    }
+}

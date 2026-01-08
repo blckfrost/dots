@@ -1,0 +1,30 @@
+{
+    "idle_inhibitor": {
+        "format": "<span color='{status_color}'>{icon}</span>",
+        "format-icons": {
+            "activated": "󰒳",
+            "deactivated": "󰒲"
+        },
+        "tooltip-format-activated": "Idle inhibitor: ON\nSystem will not sleep",
+        "tooltip-format-deactivated": "Idle inhibitor: OFF\nSystem may sleep when idle",
+        "on-click": "toggle"
+    },
+    "custom/power": {
+        "format": "<span color='#f38ba8'></span>",
+        "tooltip": "Power Options",
+        "on-click": "wlogout -p layer-shell",
+        "on-click-right": "systemctl poweroff"
+    },
+    "custom/updates": {
+        "format": "<span color='#f9e2af'></span> {}",
+        "interval": 3600,
+        "exec": "checkupdates | wc -l",
+        "exec-if": "exit 0",
+        "on-click": "kitty -e yay -Syu",
+        "tooltip-format": "{} package updates available"
+    },
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": ["idle_inhibitor"]
+    }
+}

@@ -1,0 +1,78 @@
+/* config - Wallpaper select */
+
+@import "~/.config/rofi/shared/colors.rasi"
+
+* {
+    background-color: transparent;
+}
+
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+    hover-select:                true;
+    me-select-entry:             "MouseSecondary";
+    me-accept-entry:             "MousePrimary";
+	dpi:						 1;
+}
+
+* {
+    separator:                  none;
+    border:                     none;
+    padding:                    0px;
+    margin:                     0px;
+    background-color:           transparent;
+}
+
+window {
+    fullscreen:                 true;
+    transparency:               "real";
+    background-color:           rgba(0,0,0,0.4);
+}
+
+mainbox {
+    children:                   [listview];
+    spacing:                    0px;
+    bordr:                      0px;
+    separator:                  none;
+    padding:                    0% 5%;
+    expand:                     true;
+    orientation:                vertical;
+    valign:                     0.5;
+}
+
+listview {
+    columns:                    7;
+    spacing:                    8px;
+    padding:                    10px;
+    lines:                      1;
+    flow:                       horizontal;
+    fixed-height:               true;
+    fixed-colums:               true;
+    scrollbar:                  false;
+    expand:                     true;
+    valign:                     0.5;
+    halign:                     0.5;
+}
+
+element {
+    border-radius:              8px;
+    children:                   [element-icon];
+    padding:                    0px;
+    vertical-align:             0.5;
+    margin:                     0px;
+    padding:                    0px;
+}
+
+element selected {
+    border:                     2px solid;
+    border-color:               #ffffff;
+    border-radius:              0px;
+}
+
+element-icon {
+    size:                       330px 500px;
+    horizontal-align:           0.5;
+    vertical-align:             0.5;
+    expand:                     true;
+    scale:                      "fit";
+}

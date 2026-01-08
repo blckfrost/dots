@@ -1,0 +1,83 @@
+/*
+ * vim:ft=less
+ */
+
+@import "./matugen-colors.css";
+
+* {
+    border: none;
+    font-size: 10.5px;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    font-family: 'FiraCode Nerd Font Mono' ;
+    background: transparent;
+    font-weight: 700;
+}
+
+window#waybar{
+    background: alpha(#262626, 0.1);
+}
+
+
+tooltip {
+    background: alpha(#262626,0.999);
+    border-radius: 4px;
+    padding: 2px 1px;
+}
+
+#tray,
+#clock,
+#hardware,
+#laptop {
+    padding: 4px 8px;
+    border-radius: 0 0 8px 8px;
+}
+
+#workspaces{
+    min-height: 0;
+    padding: 4px 8px 4px 8px;
+    margin: 0 8px 0 0;
+    border-radius: 0 0 8px 0px;
+}
+
+#window{
+    margin: 0 8px 0 0
+}
+
+#workspaces button{
+    color:transparent;
+    background:@surface_container_low;
+    border-radius: 9999px;
+    min-width: 16px;
+    min-height: 8px;
+    margin:0 3px;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active{
+    background-color: @source_color;
+
+    min-width: 32px;
+    min-height: 8px;
+}
+
+#workspaces button.urgent{
+    background-color: @surface_container_high;
+}
+
+#custom-swaync{
+    margin: 0 12px;
+}
+
+#hardware{
+    margin:0 12px
+}
+
+#battery{
+    margin: 0 12px 0 0;
+}
+
+#network{
+    margin: 0 12px 0 12px
+}

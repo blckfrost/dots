@@ -1,0 +1,63 @@
+{
+    "memory": {
+        "format": "MEM: {icon} {percentage}% ",
+        "interval": 2,
+        "on-click": "btop",
+        "tooltip-format": "MEM_TOT\t: {total}GiB\nSWP_TOT\t: {swapTotal}GiB\n\nMEM_USD\t: {used:0.1f}GiB\nSWP_USD\t: {swapUsed:0.1f}GiB",
+        "format-icons": [
+            "░░░░░░░░",
+            "█░░░░░░░",
+            "██░░░░░░",
+            "███░░░░░",
+            "████░░░░",
+            "█████░░░",
+            "██████░░",
+            "<span color='#B7416E'>!!!!!!!!</span>",
+            "<span color='#B7416E'>CRITICAL</span>"
+        ]
+    },
+
+    "cpu": {
+        "format": "CPU: {icon} {usage}%",
+        "on-click": "kitty -e btop",
+        "interval": 1,
+        "format-icons": [
+            "░░░░░░░░",
+            "█░░░░░░░",
+            "██░░░░░░",
+            "███░░░░░",
+            "████░░░░",
+            "█████░░░",
+            "██████░░",
+            "<span color='#B7416E'>!!!!!!!!</span>",
+            "<span color='#B7416E'>CRITICAL</span>"
+        ]
+    },
+
+    "disk": {
+        "format": " ~ {}%",
+        "path": "/home/draco",
+        "format-icons": [
+            "░░░░░░░░",
+            "█░░░░░░░",
+            "██░░░░░░",
+            "███░░░░░",
+            "████░░░░",
+            "█████░░░",
+            "██████░░",
+            "<span color='#B7416E'>⫽⫽⫽⫽⫽⫽⫽⫽⫽⫽</span>",
+            "<span color='#B7416E'>⫻⫻⫻⫻⫻⫻⫻⫻⫻</span>"
+        ]
+    },
+
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": ["memory", "cpu"]
+    }
+}
