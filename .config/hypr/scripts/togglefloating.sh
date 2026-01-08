@@ -26,6 +26,6 @@ function handle() {
 }
 
 case $window in
-    kitty) handle "80%" "90%" ;;
-    *) handle "80%" "85%" ;;
+kitty) handle "80%" "90%" ;;
+*) handle "80%" "80%" ;;
 esac

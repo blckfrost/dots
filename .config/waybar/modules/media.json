@@ -1,6 +1,6 @@
 {
     "custom/media": {
-        "format": "󰄾 {0} {1} 󰄽",
+        "format": "",
         "return-type": "json",
         "max-length": 10,
         "format-icons": {
