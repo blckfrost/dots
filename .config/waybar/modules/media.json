@@ -16,8 +16,8 @@
     },
     "mpris": {
         "interval": 1,
-        "format": "{player_icon} <i>{dynamic}</i>",
-        "format-paused": "{status_icon} <i>{artist} {title}</i>",
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} {artist} {title}",
         "on-click-middle": "playerctl play-pause",
         "on-click": "playerctl previous",
         "on-click-right": "playerctl next",
@@ -26,6 +26,7 @@
         "scroll-step": 5.0,
         "smooth-scrolling-threshold": 1,
         "tooltip": true,
+        "tooltip-format": "{player_icon} {status_icon} {artist} - {title}",
         "player-icons": {
             "chromium": "",
             "default": "",
@@ -37,12 +38,12 @@
             "vlc": "󰕼"
         },
         "status-icons": {
-            "paused": "󰐎",
+            "paused": "",
             "playing": "",
             "stopped": ""
         },
         "dynamic-order": ["artist", "title"],
         "ignored-players": ["firefox", "zen"],
-        "max-length": 50
+        "max-length": 25
     }
 }
