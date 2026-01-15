@@ -1,0 +1,9 @@
+{
+    "custom/pomodoro": {
+        "exec": "~/.config/waybar/scripts/pomodoro.sh",
+        "return-type": "json",
+        "on-click": "~/.config/waybar/scripts/pomodoro.sh click",
+        "on-middle-right": "~/.config/waybar/scripts/pomodoro.sh middle",
+        "tooltip": true
+    }
+}

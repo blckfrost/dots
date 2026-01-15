@@ -15,5 +15,15 @@
         "separate-outputs": true,
         "icon": true,
         "icon-size": 12
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 16,
+        "all-outputs": false,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": ["wofi", "rofi"]
     }
 }

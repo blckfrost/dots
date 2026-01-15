@@ -34,6 +34,10 @@ tooltip {
     border-radius: 0 0 8px 8px;
 }
 
+#custom-pomodoro{
+    margin: 0 0 0 12px;
+}
+
 #workspaces{
     min-height: 0;
     padding: 4px 8px 4px 8px;
@@ -80,4 +84,20 @@ tooltip {
 
 #network{
     margin: 0 12px 0 12px
+}
+
+#custom-pomodoro.work {
+  color: #f38ba8;
+}
+
+#custom-pomodoro.break {
+  color: #a6e3a1;
+}
+
+#custom-pomodoro.paused {
+  color: #f9e2af;
+}
+
+#custom-pomodoro.idle {
+  color: #cdd6f4;
 }
