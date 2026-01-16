@@ -1,0 +1,60 @@
+/*
+ * vim: ft=less
+*/
+
+
+@import '/home/draco/.cache/wal/colors-wlogout.css';
+
+* {
+    font-size: 18px;
+    font-family: 'JetBrainsMono Nerd Font';
+    border-radius: 10px;
+}
+
+window {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+button {
+    color: @foreground;
+    background-color: rgba(0, 0, 0, 0.8);
+    outline-style: none;
+    border: none;
+    box-shadow: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s ease-in;
+}
+
+button:hover,
+button:focus {
+    color: @background;
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    background-color: @color8;
+    background-size: 40%;
+}
+
+#logout {
+    background-image: image(url('icons/logout.png'));
+}
+
+#suspend {
+    background-image: image(url('icons/suspend.png'));
+}
+
+#shutdown {
+    background-image: image(url('icons/shutdown.png'));
+}
+
+#reboot {
+    background-image: image(url('icons/reboot.png'));
+}
+
+#logout,
+#suspend,
+#shutdown,
+#reboot {
+    margin: 2px;
+}

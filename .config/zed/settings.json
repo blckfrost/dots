@@ -1,0 +1,71 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "soft_wrap": "none",
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "buffer_line_height": "standard",
+  "restore_on_startup": "none",
+  "when_closing_with_no_tabs": "platform_default",
+  "project_panel": {
+    "hide_gitignore": false,
+    "default_width": 220.0
+  },
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "agent": {
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
+    },
+    "play_sound_when_agent_done": true,
+    "model_parameters": []
+  },
+  "terminal": {
+    "shell": "system"
+  },
+  "languages": {
+    "JavaScript": {
+      "inlay_hints": {
+        "enabled": true
+      }
+    },
+    "HTML": {
+      "indent_guides": {
+        "coloring": "indent_aware"
+      },
+      "hard_tabs": true
+    }
+  },
+  "prettier": {
+    "allowed": true
+  },
+  "formatter": "language_server",
+  "show_signature_help_after_edits": true,
+  "auto_signature_help": true,
+  "scroll_beyond_last_line": "off",
+  "autosave": "on_focus_change",
+  "ui_font_weight": 450.0,
+  "ui_font_family": "Fira Code",
+  "buffer_font_family": "Fira Code",
+  "vim_mode": true,
+  "icon_theme": "JetBrains Icons Dark",
+  "ui_font_size": 13.0,
+  "buffer_font_size": 14.0,
+  "theme": {
+    "mode": "dark",
+    "light": "Ayu Dark",
+    "dark": "macOS Classic Dark"
+  }
+}
