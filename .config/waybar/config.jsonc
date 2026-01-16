@@ -4,8 +4,8 @@
     "height": 0,
     "reload_style_on_change": true,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window", "group/laptop", "custom/media"],
-    "modules-center": ["clock"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window", "group/laptop", "mpris"],
+    "modules-center": ["clock", "custom/pomodoro"],
     "modules-right": ["group/audio", "group/hardware", "tray", "custom/swaync"],
     "include": [
         "~/.config/waybar/modules/workspaces.json",
@@ -16,5 +16,6 @@
         "~/.config/waybar/modules/laptop.json",
         "~/.config/waybar/modules/media.json",
         "~/.config/waybar/modules/audio.json",
+        "~/.config/waybar/modules/timer.json",
     ],
 }

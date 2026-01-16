@@ -12,7 +12,7 @@
     margin: 0;
     font-family: 'FiraCode Nerd Font Mono' ;
     background: transparent;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 window#waybar{
@@ -32,6 +32,10 @@ tooltip {
 #laptop {
     padding: 4px 8px;
     border-radius: 0 0 8px 8px;
+}
+
+#custom-pomodoro{
+    margin: 0 0 0 12px;
 }
 
 #workspaces{
@@ -80,4 +84,20 @@ tooltip {
 
 #network{
     margin: 0 12px 0 12px
+}
+
+#custom-pomodoro.work {
+  color: #f38ba8;
+}
+
+#custom-pomodoro.break {
+  color: #a6e3a1;
+}
+
+#custom-pomodoro.paused {
+  color: #f9e2af;
+}
+
+#custom-pomodoro.idle {
+  color: #cdd6f4;
 }
