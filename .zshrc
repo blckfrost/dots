@@ -154,6 +154,7 @@ export MANGOHUD=1
 export PATH=$PATH:/home/draco/binfiles
 source /home/draco/binfiles/.completions/_bin_completions.sh >/dev/null 2>&1
 export PATH="$HOME/.local/share/bob/nvim-bin/:$PATH"
+export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -281,9 +282,6 @@ pyserve () {
 # Starship
 eval "$(starship init zsh)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
 export PNPM_HOME="/home/draco/.local/share/pnpm"

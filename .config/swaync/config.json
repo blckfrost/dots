@@ -22,7 +22,7 @@
     "fit-to-screen": true,
     "hide-on-clear": true,
     "hide-on-action": true,
-    "widgets": ["title", "dnd", "notifications", "volume", "buttons-grid", "mpris"],
+    "widgets": ["dnd", "notifications", "volume", "buttons-grid", "mpris"],
     "widget-config": {
         "title": {
             "text": "󰂚 Notifications",
