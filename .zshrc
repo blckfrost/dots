@@ -94,7 +94,7 @@ alias rm="rm -rf"
 alias cp="cp -ir"
 alias mv="mv -iv"
 alias t="touch"
-alias cat="bat"
+# alias cat="bat"
 
 alias pacsu="sudo pacman -Syu"  # update
 alias paci="sudo pacman -S"     # install

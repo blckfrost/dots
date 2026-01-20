@@ -67,7 +67,11 @@ tooltip {
 }
 
 #workspaces button.urgent{
-    background-color: @surface_container_high;
+    background-color: @error_container;
+}
+
+#workspaces button.empty{
+    background-color:@surface_container_lowest ;
 }
 
 #custom-swaync{
