@@ -2,13 +2,11 @@
 # Quick session creator from common project directories
 
 DIRS=(
-    "$HOME/dev/AHH"
-    "$HOME/dev/private/CERV/"
-    "$HOME/dev/private/"
-    "$HOME/dev/public"
-    "$HOME/dev/cloned"
-    "$HOME/dev/golang/"
-    "$HOME/dev"
+    "$HOME/dev/archive/"
+    "$HOME/dev/personal/"
+    "$HOME/dev/cloned/"
+    "$HOME/dev/scripts/"
+    "$HOME/dev/work/"
     "$HOME/dev"
 )
 

@@ -16,8 +16,9 @@ if [ ! -z "${RofiSel}" ] ; then
     selected="${wallPath}/${RofiSel}"
 
     swww img $selected \
-        --transition-type "wipe" \
-        --transition-duration 1
+        --transition-type "wave" \
+        --transition-duration 4  \
+        --transition-angle 20
 
     notify-send "Wallpaper ${RofiSel}" -a "Wallpaper" -i "${wallPath}/${RofiSel}" -t 2200
     ln -sf "$selected" "$HOME/.config/swww/.current_wallpaper"
