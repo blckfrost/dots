@@ -29,6 +29,7 @@ window {
 /* ----- Main Box ----- */
 mainbox {
     enabled:                     true;
+    spacing:                     0px;
     orientation:                 vertical;
     children:                    [ "inputbar", "listbox" ];
     background-color:            transparent;
@@ -37,11 +38,11 @@ mainbox {
 /* ---- Inputbar ---- */
 inputbar {
     enabled:                     true;
-    padding:                     60px 40px;
+    padding:                     12px 16px;
     background-color:            transparent;
     orientation:                 horizontal;
     children:                    [ "entry" ];
-    background-image:            url("~/.config/swww/.current_wallpaper", width);
+    text-color:                  @foreground;
 }
 
 /* ---- Entry input ---- */
@@ -50,7 +51,7 @@ entry {
     expand:                      true;
     padding:                     12px 16px;
     border-radius:               10px;
-    background-color:            @background-alpha;
+    background-color:            @background-alt;
     text-color:                  @foreground;
     cursor:                      text;
     placeholder:                 "   CTRL Del - Cliphist del || Alt Del - cliphist wipe"; // << Search symbol
@@ -59,7 +60,7 @@ entry {
 
 /* ---- Listbox ---- */
 listbox {
-    padding:                     5px 20px 0px 20px;
+    padding:                     12px 16px 16px 16px;
     background-color:            transparent;
     orientation:                 vertical;
     children:                    [ "message", "listview" ];
@@ -71,7 +72,6 @@ listview {
     columns:                     1;
     cycle:                       true;
     dynamic:                     true;
-    scrollbar:                   true;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                false;
