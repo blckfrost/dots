@@ -7,6 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "base_keymap": "VSCode",
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
   "soft_wrap": "none",
   "diagnostics": {
     "inline": {
@@ -60,7 +68,11 @@
   "ui_font_family": "Fira Code",
   "buffer_font_family": "Fira Code",
   "vim_mode": true,
-  "icon_theme": "JetBrains Icons Dark",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "JetBrains Icons Dark",
+    "dark": "JetBrains Icons Dark"
+  },
   "ui_font_size": 13.0,
   "buffer_font_size": 14.0,
   "theme": {

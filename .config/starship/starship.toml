@@ -43,3 +43,6 @@ stashed = "≡"
 disabled = true
 format = "[$symbol$version]($style)"
 detect_files = ["package.json"]
+
+[python]
+enabled = true

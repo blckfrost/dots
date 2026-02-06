@@ -27,5 +27,7 @@ function handle() {
 
 case $window in
 kitty) handle "80%" "90%" ;;
+zen) handle "80%" "90%" ;;
+org.pwmt.zathura) handle "700" "730" ;;
 *) handle "80%" "80%" ;;
 esac

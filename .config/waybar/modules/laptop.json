@@ -13,6 +13,18 @@
         "format-full": "<span color='#a6e3a1'>{icon}</span> {capacity}%",
         "format-icons": {
             "default": [
+                "<span color='#fc5a70'>█▏▏▏▏▏▏▏▏▏</span>",
+                "<span color='#fc5a70'>██▏▏▏▏▏▏▏▏</span>",
+                "<span color='#fc5a70'>███▏▏▏▏▏▏▏</span>",
+                "<span color='#fab387'>████▏▏▏▏▏▏</span>",
+                "<span color='#f9e2af'>█████▏▏▏▏▏</span>",
+                "<span color='#f9e2af'>██████▏▏▏▏</span>",
+                "<span color='#a6e3a1'>███████▏▏▏</span>",
+                "<span color='#a6e3a1'>████████▏▏</span>",
+                "<span color='#a6e3a1'>█████████▏</span>",
+                "<span color='#a6e3a1'>██████████</span>"
+            ],
+            "charging": [
                 "<span color='#f38ba8'>█▏▏▏▏▏▏▏▏▏</span>",
                 "<span color='#f38ba8'>██▏▏▏▏▏▏▏▏</span>",
                 "<span color='#fab387'>███▏▏▏▏▏▏▏</span>",
@@ -23,18 +35,6 @@
                 "<span color='#a6e3a1'>████████▏▏</span>",
                 "<span color='#a6e3a1'>█████████▏</span>",
                 "<span color='#a6e3a1'>██████████</span>"
-            ],
-            "charging": [
-                "█▏▏▏▏▏▏▏▏▏",
-                "██▏▏▏▏▏▏▏▏",
-                "███▏▏▏▏▏▏▏",
-                "████▏▏▏▏▏▏",
-                "█████▏▏▏▏▏",
-                "██████▏▏▏▏",
-                "███████▏▏▏",
-                "████████▏▏",
-                "█████████▏",
-                "██████████"
             ]
         },
 
@@ -46,7 +46,7 @@
         "tooltip-format": "{timeTo}\nCapacity: {capacity}%\nHealth: {health}%\nPower: {power}W\nCycles: {cycles}"
     },
     "network": {
-        "format-wifi": "<span color='#89b4fa'>{icon}</span> {essid}",
+        "format-wifi": "<span color='#89b4fa'>{icon}</span>{essid}",
         "format-ethernet": "<span color='#a6e3a1'>󰈀</span> Connected",
         "format-disconnected": "<span color='#f38ba8'>󰖪</span> Disconnected",
         "format-alt": "<span color='#89b4fa'>󰖩</span> {bandwidthUpBits} 󰁝 {bandwidthDownBits} 󰁅",
