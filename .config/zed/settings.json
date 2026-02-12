@@ -34,8 +34,8 @@
   "agent": {
     "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-sonnet-4"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-5"
     },
     "play_sound_when_agent_done": true,
     "model_parameters": []

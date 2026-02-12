@@ -1,9 +1,9 @@
 {
-    "custom/pomodoro": {
-        "exec": "~/.config/waybar/scripts/pomodoro.sh",
+    "custom/pomod": {
+        "exec": "pomod waybar",
         "return-type": "json",
-        "on-click": "~/.config/waybar/scripts/pomodoro.sh click",
-        "on-middle-right": "~/.config/waybar/scripts/pomodoro.sh middle",
+        "interval": 1,
+        "on-click": "pomod ctl toggle",
         "tooltip": true
     }
 }

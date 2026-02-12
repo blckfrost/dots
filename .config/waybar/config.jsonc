@@ -5,7 +5,7 @@
     "reload_style_on_change": true,
 
     "modules-left": ["hyprland/workspaces", "hyprland/window", "group/laptop", "mpris"],
-    "modules-center": ["clock", "custom/pomodoro"],
+    "modules-center": ["clock", "custom/pomod"],
     "modules-right": ["group/audio", "group/hardware", "tray", "custom/swaync"],
     "include": [
         "~/.config/waybar/modules/workspaces.json",

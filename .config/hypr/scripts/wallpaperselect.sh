@@ -1,30 +1,57 @@
 #!/usr/bin/env bash
 
-# set variables
-RofiConf="$HOME/.config/rofi/wallpaper/wallpaperselect.rasi"
-wallPath="$HOME/wallpapers/"
+### CONFIG ###
+ROFI_CONF="$HOME/.config/rofi/wallpaper/wallpaperselect.rasi"
+WALL_DIR="$HOME/wallpapers"
+THUMB_DIR="$HOME/.cache/wall-thumbs"
+THUMB_SIZE="400x600"
 
+### INIT ###
+mkdir -p "$THUMB_DIR"
 
-# launch rofi menu
-RofiSel=$( find -L "${wallPath}" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -exec basename {} \; | sort | while read rfile
-    do
-        echo -en "$rfile\x00icon\x1f${wallPath}/${rfile}\n"
-done | rofi -show -dmenu -theme  "${RofiConf}" -select "${currentWall}")
+### GENERATE THUMBNAILS (only if missing) ###
+find -L "$WALL_DIR" -type f \
+    \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
+    -print0 | while IFS= read -r -d '' img; do
+    base="$(basename "$img")"
+    thumb="$THUMB_DIR/${base}.png"
 
-# apply wallpaper
-if [ ! -z "${RofiSel}" ] ; then
-    selected="${wallPath}/${RofiSel}"
+    if [ ! -f "$thumb" ]; then
+        magick "$img" \
+            -resize "${THUMB_SIZE}^" \
+            -gravity center \
+            -extent "$THUMB_SIZE" \
+            "$thumb"
+    fi
+done
 
-    swww img $selected \
-        --transition-type "wave" \
-        --transition-duration 4  \
+### ROFI MENU ###
+RofiSel=$(
+    find -L "$WALL_DIR" -type f \
+        \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
+        -exec basename {} \; | sort | while read -r rfile; do
+        thumb="$THUMB_DIR/${rfile}.png"
+        echo -en "$rfile\x00icon\x1f$thumb\n"
+    done | rofi -show -dmenu -theme "$ROFI_CONF"
+)
+
+### APPLY WALLPAPER ###
+if [ -n "$RofiSel" ]; then
+    selected="$WALL_DIR/$RofiSel"
+
+    swww img "$selected" \
+        --transition-type wave \
+        --transition-duration 4 \
         --transition-angle 20
 
-    notify-send "Wallpaper ${RofiSel}" -a "Wallpaper" -i "${wallPath}/${RofiSel}" -t 2200
+    notify-send "Wallpaper set" "$RofiSel" \
+        -a "Wallpaper" \
+        -i "$selected" \
+        -t 2200
+
     ln -sf "$selected" "$HOME/.config/swww/.current_wallpaper"
 
-    # wal -i "${selected}"
-    matugen image "${selected}"
-    . ~/.config/hypr/scripts/matugen-apply.sh
+    # Color scheme
+    matugen image "$selected"
+    . "$HOME/.config/hypr/scripts/matugen-apply.sh"
 fi
-
