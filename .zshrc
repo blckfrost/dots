@@ -151,8 +151,9 @@ export MANGOHUD=1
 # |        ENV        |
 # +-------------------+
 # Binfiles completion setup
-export PATH=$PATH:/home/draco/binfiles
-source /home/draco/binfiles/.completions/_bin_completions.sh >/dev/null 2>&1
+# export PATH=$PATH:/home/draco/binfiles
+# source /home/draco/binfiles/.completions/_bin_completions.sh >/dev/null 2>&1
+
 export PATH="$HOME/.local/share/bob/nvim-bin/:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 
@@ -255,9 +256,9 @@ dl-yt () {
     local format="bestvideo[height<=${resolution}][ext=mp4]+bestaudio[ext=m4a]"
 
     if [[ $vtype == "p" ]]; then
-        yt-dlp -f "$format" -o "%(playlist)s/%(title)s.%(ext)s" "$3"
+        yt-dlp -f "$format" -o "%(channel)s/%(title)s.%(ext)s" "$3"
     else
-        yt-dlp -f "$format" -o "%(title)s.%(ext)s" "$3"
+        yt-dlp -f "$format" -o "%(channel)s/%(title)s.%(ext)s" "$3"
     fi
 }
 _dl-yt(){
