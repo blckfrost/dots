@@ -145,7 +145,6 @@ alias dkvol="docker volume ls"
 alias ports="netstat -tuln"
 alias psg="ps aux | grep"
 alias disk="df -h"
-export MANGOHUD=1
 
 # +-------------------+
 # |        ENV        |
@@ -181,6 +180,11 @@ export PATH="$HOME/.local/bin:$PATH"
 # Starship
 export STARSHIP_CACHE=~/.starship/cache
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+export MANGOHUD=1
+
+export NODE_ENV=development
+
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -253,12 +257,22 @@ dl-yt () {
 
     local resolution=$1
     local vtype=$2
+    local url=$3
     local format="bestvideo[height<=${resolution}][ext=mp4]+bestaudio[ext=m4a]"
+    local args=(
+        -f "$format"
+        -o "%(channel)s/%(title)s.%(ext)s"
+        --embed-chapters
+        --sponsorblock-mark sponsor,intro,outro,selfpromo,interaction
+        --write-subs
+        --sub-langs "en.*"
+        --embed-subs
+    )
 
     if [[ $vtype == "p" ]]; then
-        yt-dlp -f "$format" -o "%(channel)s/%(title)s.%(ext)s" "$3"
+        yt-dlp "${args[@]}" "$url"
     else
-        yt-dlp -f "$format" -o "%(channel)s/%(title)s.%(ext)s" "$3"
+        yt-dlp "${args[@]}" "$url"
     fi
 }
 _dl-yt(){

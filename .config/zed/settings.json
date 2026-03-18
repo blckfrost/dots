@@ -7,77 +7,211 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "base_keymap": "VSCode",
-  "telemetry": {
-    "diagnostics": true,
-    "metrics": false
-  },
-  "session": {
-    "trust_all_worktrees": true
-  },
-  "soft_wrap": "none",
-  "diagnostics": {
-    "inline": {
-      "enabled": true
-    }
-  },
-  "buffer_line_height": "standard",
-  "restore_on_startup": "none",
-  "when_closing_with_no_tabs": "platform_default",
-  "project_panel": {
-    "hide_gitignore": false,
-    "default_width": 220.0
-  },
-  "edit_predictions": {
-    "mode": "subtle"
-  },
-  "agent": {
-    "always_allow_tool_actions": true,
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4-5"
+    "cursor_blink": true,
+    "vim": {
+        "toggle_relative_line_numbers": true
     },
-    "play_sound_when_agent_done": true,
-    "model_parameters": []
-  },
-  "terminal": {
-    "shell": "system"
-  },
-  "languages": {
-    "JavaScript": {
-      "inlay_hints": {
+    "show_wrap_guides": true,
+    "git_panel": {
+        "sort_by_path": false,
+        "status_style": "label_color",
+        "tree_view": true,
+        "collapse_untracked_diff": false,
+    },
+    "current_line_highlight": "all",
+    "text_rendering_mode": "platform_default",
+    "pane_split_direction_horizontal": "down",
+    "window_decorations": "client",
+    "edit_predictions": {
+        "provider": "copilot",
+        "mode": "subtle",
+        "copilot": {
+            "enable_next_edit_suggestions": true,
+        }
+    },
+    "tab_size": 4,
+    "restore_on_startup": "last_workspace",
+    "languages": {
+        "JavaScript": {
+            "colorize_brackets": false,
+            "inlay_hints": {
+                "enabled": true
+            },
+            "indent_guides": {
+                "enabled": true,
+                "background_coloring": "disabled"
+            }
+        },
+        "TypeScript": {
+            "colorize_brackets": false,
+            "indent_guides": {
+                "enabled": true,
+                "background_coloring": "disabled"
+            }
+        },
+        "HTML": {
+            "indent_guides": {
+                "coloring": "indent_aware"
+            },
+            "hard_tabs": true
+        }
+    },
+    "colorize_brackets": false,
+    "inlay_hints": {
+        "show_background": false,
         "enabled": true
-      }
     },
-    "HTML": {
-      "indent_guides": {
-        "coloring": "indent_aware"
-      },
-      "hard_tabs": true
-    }
-  },
-  "prettier": {
-    "allowed": true
-  },
-  "formatter": "language_server",
-  "show_signature_help_after_edits": true,
-  "auto_signature_help": true,
-  "scroll_beyond_last_line": "off",
-  "autosave": "on_focus_change",
-  "ui_font_weight": 450.0,
-  "ui_font_family": "Fira Code",
-  "buffer_font_family": "Fira Code",
-  "vim_mode": true,
-  "icon_theme": {
-    "mode": "dark",
-    "light": "JetBrains Icons Dark",
-    "dark": "JetBrains Icons Dark"
-  },
-  "ui_font_size": 13.0,
-  "buffer_font_size": 14.0,
-  "theme": {
-    "mode": "dark",
-    "light": "Ayu Dark",
-    "dark": "macOS Classic Dark"
-  }
+    "indent_guides": {
+        "coloring": "fixed",
+        "background_coloring": "disabled"
+    },
+    "soft_wrap": "none",
+    "toolbar": {
+        "code_actions": true,
+        "breadcrumbs": true
+    },
+    "minimap": {
+        "thumb": "always",
+        "max_width_columns": 80,
+        "display_in": "active_editor",
+        "show": "always"
+    },
+    "autosave": "on_focus_change",
+    "notification_panel": {
+        "button": true
+    },
+    "cursor_shape": "bar",
+    "use_smartcase_search": true,
+    "ui_font_weight": 450.0,
+    "ui_font_family": "FiraCode Nerd Font Mono",
+    "buffer_line_height": "standard",
+    "buffer_font_weight": 380,
+    "buffer_font_family": "FiraCode Nerd Font Mono",
+    "pane_split_direction_vertical": "right",
+    "active_pane_modifiers": {},
+    "centered_layout": {
+        "right_padding": null,
+        "left_padding": null
+    },
+    "preview_tabs": {
+        "enable_preview_from_file_finder": true
+    },
+    "debugger": {
+        "button": true
+    },
+    "search": {
+        "regex": true,
+        "button": true
+    },
+    "diagnostics": {
+        "button": true,
+        "inline": {
+            "enabled": true
+        }
+    },
+    "status_bar": {
+        "cursor_position_button": true,
+        "active_language_button": true
+    },
+    "tab_bar": {
+        "show_pinned_tabs_in_separate_row": false,
+        "show": true,
+        "show_tab_bar_buttons": true,
+        "show_nav_history_buttons": true
+    },
+    "context_servers": {},
+    "project_panel": {
+        "hide_hidden": false,
+        "sticky_scroll": true,
+        "scrollbar": {
+            "show": "auto"
+        },
+        "indent_size": 12,
+        "folder_icons": false,
+        "hide_gitignore": false,
+        "git_status": true,
+        "file_icons": true,
+        "dock": "left",
+        "button": true,
+        "default_width": 220.0
+    },
+    "disable_ai": false,
+    "git": {
+        "branch_picker": {
+            "show_author_name": true
+        },
+        "inline_blame": {
+            "show_commit_summary": true
+        }
+    },
+    "vim_mode": true,
+    "base_keymap": "VSCode",
+    "tabs": {
+        "show_diagnostics": "all",
+        "close_position": "left",
+        "file_icons": true,
+        "git_status": true,
+        "show_close_button": "hover"
+    },
+    "title_bar": {
+        "show_onboarding_banner": true,
+        "show_project_items": true,
+        "show_branch_name": true,
+        "show_sign_in": true,
+        "show_menus": false,
+        "show_user_picture": true,
+    },
+    "agent": {
+        "default_model": {
+            "provider": "zed.dev",
+            "model": "claude-sonnet-4.6"
+        },
+        "inline_assistant_model": {
+            "provider": "zed.dev",
+            "model": "claude-sonnet-4.6",
+            "enable_thinking": true
+        },
+        "play_sound_when_agent_done": true,
+        "model_parameters": []
+    },
+    "terminal": {
+        "shell": "system",
+        "dock": "bottom",
+        "toolbar": {
+            "breadcrumbs": false
+        },
+        "default_height": 320,
+        "font_weight": 200,
+        "button": true,
+        "font_size": 12,
+        "cursor_shape": "underline",
+        "font_family": "FiraCode Nerd Font Mono"
+    },
+    "ui_font_size": 14,
+    "buffer_font_size": 12,
+    "theme": {
+        "mode": "dark",
+        "light": "Ayu Dark",
+        "dark": "Vesper Blur"
+    },
+    "telemetry": {
+        "diagnostics": false,
+        "metrics": false
+    },
+    "session": {
+        "trust_all_worktrees": true
+    },
+    "when_closing_with_no_tabs": "platform_default",
+    "prettier": {
+        "allowed": true
+    },
+    "formatter": "language_server",
+    "show_signature_help_after_edits": true,
+    "auto_signature_help": true,
+    "scroll_beyond_last_line": "off",
+    "icon_theme": {
+        "mode": "dark",
+        "light": "JetBrains Icons Dark",
+        "dark": "JetBrains Icons Dark"
+    },
 }
