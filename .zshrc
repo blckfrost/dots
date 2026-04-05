@@ -305,3 +305,11 @@ eval "$(starship init zsh)"
 #   *) export PATH="$PNPM_HOME:$PATH" ;;
 # esac
 # # pnpm end
+
+
+# android sdk setup
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/emulator
+
+# source ./.partykit_stuff

@@ -30,7 +30,7 @@
         }
     },
     "tab_size": 4,
-    "restore_on_startup": "last_workspace",
+    "restore_on_startup": "launchpad",
     "languages": {
         "JavaScript": {
             "colorize_brackets": false,
@@ -162,9 +162,17 @@
         "show_user_picture": true,
     },
     "agent": {
+        "favorite_models": [
+            {
+                "provider": "copilot_chat",
+                "model": "gpt-5.3-codex",
+                "enable_thinking": false
+            }
+        ],
         "default_model": {
-            "provider": "zed.dev",
-            "model": "claude-sonnet-4.6"
+            "effort": "high",
+            "provider": "copilot_chat",
+            "model": "gpt-5.3-codex"
         },
         "inline_assistant_model": {
             "provider": "zed.dev",
@@ -184,7 +192,7 @@
         "font_weight": 200,
         "button": true,
         "font_size": 12,
-        "cursor_shape": "underline",
+        "cursor_shape": "bar",
         "font_family": "FiraCode Nerd Font Mono"
     },
     "ui_font_size": 14,
@@ -192,7 +200,7 @@
     "theme": {
         "mode": "dark",
         "light": "Ayu Dark",
-        "dark": "Vesper Blur"
+        "dark": "macOS Classic Dark"
     },
     "telemetry": {
         "diagnostics": false,

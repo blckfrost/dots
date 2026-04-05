@@ -2,7 +2,6 @@
 
 #pywal-discord
 #walogram -s > /dev/null
-pywalfox update
 spicetify apply -q -n
 
 # set gtk theme
