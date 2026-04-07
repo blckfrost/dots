@@ -52,6 +52,6 @@ if [ -n "$RofiSel" ]; then
     ln -sf "$selected" "$HOME/.config/awww/.current_wallpaper"
 
     # Color scheme
-    matugen image "$selected"
+    matugen image "$selected" --source-color-index 0
     . "$HOME/.config/hypr/scripts/matugen-apply.sh"
 fi
