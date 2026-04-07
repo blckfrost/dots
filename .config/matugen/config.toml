@@ -2,11 +2,11 @@
 reload_apps = true
 
 [config.reload_apps_list]
-#kitty = true
+kitty = true
 gtk_theme = true
 
 [config.wallpaper]
-command = "swww"
+command = "awww"
 arguments = ["img", "--transition-type", "center"]
 set = false
 
@@ -48,6 +48,7 @@ post_hook = 'swaync-client -rs'
 [templates.rofi]
 input_path = '~/.config/matugen/templates/matugen-rofi.rasi'
 output_path = '~/.config/rofi/matugen/matugen-rofi.rasi'
+
 
 # Zathura
 [templates.zathura]

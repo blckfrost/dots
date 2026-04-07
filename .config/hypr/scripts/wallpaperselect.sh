@@ -39,7 +39,7 @@ RofiSel=$(
 if [ -n "$RofiSel" ]; then
     selected="$WALL_DIR/$RofiSel"
 
-    swww img "$selected" \
+    awww img "$selected" \
         --transition-type wave \
         --transition-duration 4 \
         --transition-angle 20
@@ -49,7 +49,7 @@ if [ -n "$RofiSel" ]; then
         -i "$selected" \
         -t 2200
 
-    ln -sf "$selected" "$HOME/.config/swww/.current_wallpaper"
+    ln -sf "$selected" "$HOME/.config/awww/.current_wallpaper"
 
     # Color scheme
     matugen image "$selected"

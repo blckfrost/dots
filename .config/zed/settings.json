@@ -23,7 +23,7 @@
     "pane_split_direction_horizontal": "down",
     "window_decorations": "client",
     "edit_predictions": {
-        "provider": "copilot",
+        "provider": "zed",
         "mode": "subtle",
         "copilot": {
             "enable_next_edit_suggestions": true,
@@ -172,7 +172,7 @@
         "default_model": {
             "effort": "high",
             "provider": "copilot_chat",
-            "model": "gpt-5.3-codex"
+            "model": "gpt-5.1"
         },
         "inline_assistant_model": {
             "provider": "zed.dev",
