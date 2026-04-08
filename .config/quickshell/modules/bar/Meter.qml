@@ -21,15 +21,15 @@ Item {
 
     function getBarColor(percent) {
         if (percent < 60) {
-            return Theme.textAccent; // Green for normal usage
+            return Theme.textAccent; // Muted green for normal usage
         } else if (percent < 70) {
-            return "#ffa500"; // Orange
+            return "#b89066"; // Muted orange
         } else if (percent < 80) {
-            return "#ff6b35"; // Orange-red
+            return "#b87858"; // Muted orange-red
         } else if (percent < 90) {
-            return "#ff4444"; // Light red
+            return "#b86666"; // Muted red
         } else {
-            return Theme.accentRed; // Full red for critical
+            return Theme.accentRed; // Deeper red for critical
         }
     }
 
@@ -46,7 +46,6 @@ Item {
                 color: Theme.textPrimaryDim
                 font.family: Theme.fontFamily
                 font.pixelSize: 12
-                anchors.verticalCenter: parent.verticalCenter
             }
 
             Text {
@@ -54,7 +53,6 @@ Item {
                 color: root.getBarColor(root.percentage)
                 font.family: Theme.fontFamily
                 font.pixelSize: 12
-                anchors.verticalCenter: parent.verticalCenter
             }
 
             Text {
@@ -62,7 +60,6 @@ Item {
                 color: Theme.textPrimary
                 font.family: Theme.fontFamily
                 font.pixelSize: 12
-                anchors.verticalCenter: parent.verticalCenter
             }
         }
     }

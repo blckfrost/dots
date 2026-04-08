@@ -10,7 +10,7 @@ import qs.shared
 PanelWindow {
     id: root
 
-    color: Qt.rgba(0.149, 0.149, 0.149, 0.4)
+    color: Qt.rgba(0.149, 0.149, 0.149, 0.6)
     focusable: true
 
     implicitHeight: 28
@@ -26,7 +26,7 @@ PanelWindow {
         anchors.fill: parent
         border {
             width: 0
-            color: Theme.ctosGray
+            color: Theme.frostyGray
         }
         color: "transparent"
     }
@@ -35,13 +35,15 @@ PanelWindow {
         anchors.fill: parent
         spacing: 0
 
-        Item {
-            Layout.fillWidth: true
-        }
-
         Row {
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignCenter
+            spacing: 4
+
+            Hostname {}
+
+            StatusCode {}
+
             Workspaces {}
         }
 
@@ -53,6 +55,14 @@ PanelWindow {
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignRight
             spacing: 4
+
+            Network {
+                window: root
+            }
+
+            HexDisplay {}
+
+            Volume {}
 
             Meter {
                 id: cpuMeter
@@ -125,6 +135,10 @@ PanelWindow {
                     }
                 }
             }
+
+            Battery {}
+
+            Clock {}
         }
     }
 }

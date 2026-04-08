@@ -22,14 +22,14 @@ Item {
         Rectangle {
             width: 9
             height: 1
-            color: Theme.ctosGray
+            color: Theme.frostyGray
             anchors.centerIn: parent
         }
 
         Rectangle {
             width: 1
             height: 9
-            color: Theme.ctosGray
+            color: Theme.frostyGray
             anchors.centerIn: parent
         }
     }

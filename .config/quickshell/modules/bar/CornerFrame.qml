@@ -21,6 +21,8 @@ Item {
         id: container
         x: root.armLength + root.horizontalMargin
         y: root.armLength - 2  // visual fix
+        width: childrenRect.width
+        height: childrenRect.height
     }
 
     component Corner: Item {
