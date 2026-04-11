@@ -7,9 +7,8 @@ Row {
     id: root
 
     property int count: 5
-    property int selectedIndex: WorkspaceManger.selectedWorkspaceId - 1  // workspace 1-based index
 
-    width: parent.height * 5 + (count - 1)
+    width: parent.height * count + (count - 1)
     height: parent.height
 
     Repeater {
@@ -17,11 +16,31 @@ Row {
 
         Row {
             required property int index
+            readonly property int workspaceId: index + 1
 
             height: parent.height
             Workspace {
                 id: workspace
-                active: parent.index === root.selectedIndex
+                workspaceId: parent.workspaceId
+                active: parent.workspaceId === WorkspaceManger.selectedWorkspaceId
+                occupied: WorkspaceManger.isWorkspaceOccupied(parent.workspaceId)
+                urgent: WorkspaceManger.isWorkspaceUrgent(parent.workspaceId)
+
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    acceptedButtons: Qt.LeftButton
+
+                    onClicked: mouse => {
+                        if (mouse.button === Qt.LeftButton) {
+                            WorkspaceManger.switchToWorkspaceId(workspace.workspaceId);
+                        }
+                    }
+
+                    onWheel: wheel => {
+                        WorkspaceManger.cycleWorkspace(wheel.angleDelta.y > 0 ? 1 : -1);
+                    }
+                }
             }
         }
     }

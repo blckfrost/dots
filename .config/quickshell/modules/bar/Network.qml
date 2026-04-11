@@ -8,7 +8,7 @@ import qs.shared
 
 Item {
     id: root
-    
+
     required property var window
 
     property string interfaceName: "..."
@@ -24,8 +24,10 @@ Item {
     width: frame.implicitWidth + 6
 
     function formatBytes(bytes) {
-        if (bytes < 1024) return bytes.toFixed(0) + "B/s";
-        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + "KB/s";
+        if (bytes < 1024)
+            return bytes.toFixed(0) + "B/s";
+        if (bytes < 1024 * 1024)
+            return (bytes / 1024).toFixed(1) + "KB/s";
         return (bytes / 1024 / 1024).toFixed(1) + "MB/s";
     }
 
@@ -34,7 +36,7 @@ Item {
         for (var i = 0; i < root.trafficHistory.length; i++) {
             maxVal = Math.max(maxVal, root.trafficHistory[i]);
         }
-        
+
         var bars = ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"];
         var graph = "";
         for (var j = 0; j < Math.min(20, root.trafficHistory.length); j++) {
@@ -74,7 +76,7 @@ Item {
         anchors.fill: parent
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
-        
+
         onEntered: {
             networkTooltip.visible = true;
             console.log("Network tooltip shown");
@@ -89,25 +91,25 @@ Item {
     PopupWindow {
         id: networkTooltip
         visible: false
-        
+
         anchor {
             window: root.window
             rect.x: root.x + root.width / 2
             rect.y: root.window.height - 4
             adjustment: PopupAdjustment.SlideX | PopupAdjustment.SlideY
         }
-        
+
         width: tooltipContent.width + 16
         height: tooltipContent.height + 16
-        
+
         color: "transparent"
-        
+
         Rectangle {
             anchors.fill: parent
             color: Qt.rgba(0.1, 0.1, 0.1, 0.95)
             border.color: Theme.textPrimary
             border.width: 1
-            
+
             Column {
                 id: tooltipContent
                 anchors.centerIn: parent
@@ -189,7 +191,7 @@ Item {
     // Get WiFi SSID
     Process {
         id: ssidProc
-        command: ["sh", "-c", "while true; do nmcli -t -f active,ssid dev wifi 2>/dev/null | grep '^yes' | cut -d: -f2 || iwgetid -r 2>/dev/null || echo '...'; sleep 5; done"]
+        command: ["sh", "-c", "while true; do nmcli -t -f active,ssid dev wifi 2>/dev/null | grep '^yes' | cut -d: -f2 || iwgetid -r 2>/dev/null || echo '...'; sleep 1; done"]
         running: true
 
         stdout: SplitParser {
@@ -219,7 +221,8 @@ Item {
         stdout: SplitParser {
             onRead: data => {
                 var trimmed = data.trim();
-                if (trimmed === "") return;
+                if (trimmed === "")
+                    return;
 
                 if (netProc.lineNum === 0) {
                     // First line is interface name
@@ -242,7 +245,7 @@ Item {
                         if (netProc.lastRx > 0) {
                             root.downloadSpeed = rx - netProc.lastRx;
                             root.uploadSpeed = tx - netProc.lastTx;
-                            
+
                             // Add to history for graph
                             var total = root.downloadSpeed + root.uploadSpeed;
                             root.trafficHistory.unshift(total);

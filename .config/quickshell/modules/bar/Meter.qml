@@ -36,7 +36,7 @@ Item {
     CornerFrame {
         id: frame
         anchors.centerIn: parent
-        height: parent.height - 4
+        height: parent.height - 6
 
         Row {
             spacing: 4

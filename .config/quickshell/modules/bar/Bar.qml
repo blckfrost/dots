@@ -10,7 +10,7 @@ import qs.shared
 PanelWindow {
     id: root
 
-    color: Qt.rgba(0.149, 0.149, 0.149, 0.6)
+    color: Qt.rgba(0.149, 0.149, 0.149, 0.4)
     focusable: true
 
     implicitHeight: 28
@@ -75,7 +75,7 @@ PanelWindow {
 
                 Process {
                     id: cpuProc
-                    command: ["sh", "-c", "while true; do head -1 /proc/stat; sleep 2; done"]
+                    command: ["sh", "-c", "while true; do head -1 /proc/stat; sleep 1; done"]
                     running: true
 
                     stdout: SplitParser {
@@ -117,7 +117,7 @@ PanelWindow {
 
                 Process {
                     id: memProc
-                    command: ["sh", "-c", "while true; do free -m | awk '/^Mem:/ {print $2, $3}'; sleep 2; done"]
+                    command: ["sh", "-c", "while true; do free -m | awk '/^Mem:/ {print $2, $3}'; sleep 1; done"]
                     running: true
 
                     stdout: SplitParser {

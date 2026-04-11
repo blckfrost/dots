@@ -12,6 +12,31 @@ Singleton {
     property var _handler
 
     property int selectedWorkspaceId
+    property var workspaceStates: ({})
+
+    function isWorkspaceOccupied(workspaceId) {
+        const state = manager.workspaceStates[workspaceId];
+        return state ? state.occupied === true : false;
+    }
+
+    function isWorkspaceUrgent(workspaceId) {
+        const state = manager.workspaceStates[workspaceId];
+        return state ? state.urgent === true : false;
+    }
+
+    function switchToWorkspaceId(workspaceId) {
+        if (!manager._handler) {
+            return;
+        }
+        manager._handler.switchToWorkspaceId(workspaceId);
+    }
+
+    function cycleWorkspace(step) {
+        if (!manager._handler) {
+            return;
+        }
+        manager._handler.cycleWorkspace(step);
+    }
 
     Component.onCompleted: {
         if (Desktop.compositor === Desktop.Compositor.Hyprland) {
@@ -21,12 +46,16 @@ Singleton {
         }
 
         manager.selectedWorkspaceId = _handler.selectedWorkspaceId;
+        manager.workspaceStates = _handler.workspaceStates;
     }
 
     Connections {
         target: manager._handler
         function onSelectedWorkspaceIdChanged() {
             debounceTimer.restart();
+        }
+        function onWorkspaceStatesChanged() {
+            manager.workspaceStates = manager._handler.workspaceStates;
         }
     }
 
