@@ -56,6 +56,10 @@ PanelWindow {
             Layout.alignment: Qt.AlignRight
             spacing: 4
 
+            AppTray {
+                window: root
+            }
+
             Network {
                 window: root
             }

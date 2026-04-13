@@ -14,6 +14,7 @@ Item {
     property string interfaceName: "..."
     property string networkName: "..."
     property string connectionType: "wifi"
+    property bool isConnected: false
     property real uploadSpeed: 0
     property real downloadSpeed: 0
     property string ipAddress: "..."
@@ -56,15 +57,8 @@ Item {
             spacing: 4
 
             Text {
-                text: root.connectionType === "wifi" ? "" : ""
-                color: Theme.textAccent
-                font.family: Theme.fontFamily
-                font.pixelSize: 12
-            }
-
-            Text {
-                text: root.networkName
-                color: Theme.textPrimary
+                text: root.isConnected ? root.networkName : "OFFLINE"
+                color: root.isConnected ? Theme.textPrimary : Theme.accentRed
                 font.family: Theme.fontFamily
                 font.pixelSize: 12
             }
@@ -79,11 +73,11 @@ Item {
 
         onEntered: {
             networkTooltip.visible = true;
-            console.log("Network tooltip shown");
+            // console.log("Network tooltip shown");
         }
         onExited: {
             networkTooltip.visible = false;
-            console.log("Network tooltip hidden");
+            // console.log("Network tooltip hidden");
         }
     }
 
@@ -116,22 +110,15 @@ Item {
                 spacing: 4
 
                 Text {
-                    text: "┌─[ " + (root.connectionType === "wifi" ? "WIFI" : "NET") + " ]─────────────────"
+                    text: "┌─[ " + (root.isConnected ? "NETWORK" : "OFFLINE") + " ]─────────────────"
                     color: Theme.textPrimary
                     font.family: Theme.fontFamily
                     font.pixelSize: 11
                 }
 
                 Text {
-                    text: "│ Network: " + root.networkName
-                    color: Theme.textPrimary
-                    font.family: Theme.fontFamily
-                    font.pixelSize: 11
-                }
-
-                Text {
-                    text: "│ Interface: " + root.interfaceName
-                    color: Theme.textPrimaryDim
+                    text: "│ Network: " + (root.isConnected ? root.networkName : "NO NETWORK")
+                    color: root.isConnected ? Theme.textPrimary : Theme.accentRed
                     font.family: Theme.fontFamily
                     font.pixelSize: 11
                 }
@@ -173,7 +160,7 @@ Item {
 
                 Text {
                     text: "│ " + root.getConnectionGraph()
-                    color: Theme.textAccent
+                    color: root.isConnected ? Theme.textAccent : Theme.textPrimaryDim
                     font.family: "monospace"
                     font.pixelSize: 11
                 }
@@ -188,33 +175,13 @@ Item {
         }
     }
 
-    // Get WiFi SSID
-    Process {
-        id: ssidProc
-        command: ["sh", "-c", "while true; do nmcli -t -f active,ssid dev wifi 2>/dev/null | grep '^yes' | cut -d: -f2 || iwgetid -r 2>/dev/null || echo '...'; sleep 1; done"]
-        running: true
-
-        stdout: SplitParser {
-            onRead: data => {
-                var trimmed = data.trim();
-                if (trimmed !== "" && trimmed !== "...") {
-                    root.networkName = trimmed;
-                    root.connectionType = "wifi";
-                } else if (root.interfaceName !== "...") {
-                    root.networkName = root.interfaceName;
-                    root.connectionType = "eth";
-                }
-            }
-        }
-    }
-
     // Network monitor
     Process {
         id: netProc
-        command: ["sh", "-c", "interface=$(ip route | grep default | awk '{print $5}' | head -1); echo $interface; ip -4 addr show $interface 2>/dev/null | grep inet | awk '{print $2}' | cut -d/ -f1 || echo '...'; while true; do cat /proc/net/dev | grep $interface | awk '{print $2, $10}'; sleep 1; done"]
+        command: ["sh", "-c", "while true; do interface=$(ip route 2>/dev/null | awk '/^default/ {print $5; exit}'); if [ -n \"$interface\" ]; then ipaddr=$(ip -4 addr show \"$interface\" 2>/dev/null | awk '/inet / {print $2; exit}' | cut -d/ -f1); rx_tx=$(awk -v dev=\"$interface:\" '$1==dev {print $2\" \"$10; exit}' /proc/net/dev); rx=$(printf '%s' \"$rx_tx\" | awk '{print $1}'); tx=$(printf '%s' \"$rx_tx\" | awk '{print $2}'); case \"$interface\" in wl*|wlan*) ctype='wifi' ;; *) ctype='eth' ;; esac; if [ \"$ctype\" = 'wifi' ]; then ssid=$(nmcli -t -f active,ssid dev wifi 2>/dev/null | awk -F: '$1==\"yes\" {print $2; exit}'); if [ -z \"$ssid\" ]; then ssid=$(iwgetid -r 2>/dev/null); fi; name=${ssid:-WiFi}; else name='Wired'; fi; echo \"STATE|1|$interface|${ipaddr:-...}|$ctype|$name|${rx:-0}|${tx:-0}\"; else echo 'STATE|0|...|...|none|NO NETWORK|0|0'; fi; sleep 1; done"]
         running: true
 
-        property int lineNum: 0
+        property string lastInterface: ""
         property real lastRx: 0
         property real lastTx: 0
 
@@ -224,40 +191,60 @@ Item {
                 if (trimmed === "")
                     return;
 
-                if (netProc.lineNum === 0) {
-                    // First line is interface name
-                    root.interfaceName = trimmed;
-                    if (root.networkName === "...") {
-                        root.networkName = trimmed;
-                    }
-                    netProc.lineNum++;
-                } else if (netProc.lineNum === 1) {
-                    // Second line is IP address
-                    root.ipAddress = trimmed;
-                    netProc.lineNum++;
-                } else {
-                    // Traffic data
-                    var parts = trimmed.split(/\s+/);
-                    if (parts.length >= 2) {
-                        var rx = parseFloat(parts[0]);
-                        var tx = parseFloat(parts[1]);
+                if (!trimmed.startsWith("STATE|"))
+                    return;
 
-                        if (netProc.lastRx > 0) {
-                            root.downloadSpeed = rx - netProc.lastRx;
-                            root.uploadSpeed = tx - netProc.lastTx;
+                var parts = trimmed.split("|");
+                if (parts.length < 8)
+                    return;
 
-                            // Add to history for graph
-                            var total = root.downloadSpeed + root.uploadSpeed;
-                            root.trafficHistory.unshift(total);
-                            if (root.trafficHistory.length > 20) {
-                                root.trafficHistory.pop();
-                            }
-                        }
+                root.isConnected = parts[1] === "1";
 
-                        netProc.lastRx = rx;
-                        netProc.lastTx = tx;
+                if (!root.isConnected) {
+                    root.interfaceName = "...";
+                    root.networkName = "NO NETWORK";
+                    root.connectionType = "none";
+                    root.ipAddress = "...";
+                    root.uploadSpeed = 0;
+                    root.downloadSpeed = 0;
+                    root.trafficHistory = [];
+                    netProc.lastInterface = "";
+                    netProc.lastRx = 0;
+                    netProc.lastTx = 0;
+                    return;
+                }
+
+                root.interfaceName = parts[2] || "...";
+                root.ipAddress = parts[3] || "...";
+                root.connectionType = parts[4] || "eth";
+                root.networkName = parts[5] || root.interfaceName;
+
+                var rx = parseFloat(parts[6]) || 0;
+                var tx = parseFloat(parts[7]) || 0;
+
+                if (netProc.lastInterface !== root.interfaceName) {
+                    netProc.lastInterface = root.interfaceName;
+                    netProc.lastRx = rx;
+                    netProc.lastTx = tx;
+                    root.uploadSpeed = 0;
+                    root.downloadSpeed = 0;
+                    return;
+                }
+
+                if (netProc.lastRx > 0) {
+                    root.downloadSpeed = Math.max(0, rx - netProc.lastRx);
+                    root.uploadSpeed = Math.max(0, tx - netProc.lastTx);
+
+                    // Add to history for graph
+                    var total = root.downloadSpeed + root.uploadSpeed;
+                    root.trafficHistory.unshift(total);
+                    if (root.trafficHistory.length > 20) {
+                        root.trafficHistory.pop();
                     }
                 }
+
+                netProc.lastRx = rx;
+                netProc.lastTx = tx;
             }
         }
     }
