@@ -73,24 +73,27 @@ Item {
 
         onEntered: {
             networkTooltip.visible = true;
-            // console.log("Network tooltip shown");
         }
         onExited: {
             networkTooltip.visible = false;
-            // console.log("Network tooltip hidden");
         }
     }
 
     // Tooltip as PopupWindow
     PopupWindow {
         id: networkTooltip
-        visible: false
+        visible: root.showTooltip
 
         anchor {
             window: root.window
-            rect.x: root.x + root.width / 2
-            rect.y: root.window.height - 4
-            adjustment: PopupAdjustment.SlideX | PopupAdjustment.SlideY
+            rect.x: root.mapToItem(root.window, root.width / 2 - tooltipContent.width / 2, root.height).x
+            rect.y: root.mapToItem(root.window, 0, root.height).y
+            rect.width: tooltipContent.width
+            rect.height: 1
+
+            edges: Edges.Bottom | Edges.CenterH
+            gravity: Edges.Top | Edges.CenterH
+            adjustment: PopupAdjustment.Flip | PopupAdjustment.SlideY
         }
 
         width: tooltipContent.width + 16

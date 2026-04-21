@@ -8,7 +8,16 @@ import qs.shared
 
 // qmllint disable
 PanelWindow {
-    id: root
+    id: bar
+    visible: true
+
+    IpcHandler {
+        target: "bar"
+
+        function toggle(): void {
+            bar.visible = !bar.visible;
+        }
+    }
 
     color: Qt.rgba(0.149, 0.149, 0.149, 0.4)
     focusable: true
@@ -57,11 +66,11 @@ PanelWindow {
             spacing: 4
 
             AppTray {
-                window: root
+                window: bar
             }
 
             Network {
-                window: root
+                window: bar
             }
 
             HexDisplay {}
