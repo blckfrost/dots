@@ -19,6 +19,7 @@
         "disk",
         "battery",
         "poweradapter",
+        "colors",
         "break",
     ],
     "logo": {

@@ -5,13 +5,12 @@ import qs.shared
 
 Item {
     id: root
-
     property int percentage: 0
     property string name: "CPU"
     property string value: "0%"
 
-    height: parent.height
-    width: frame.width + 6
+    implicitWidth: contentRow.implicitWidth
+    implicitHeight: contentRow.implicitHeight
 
     function getAsciiBar(percent) {
         var bars = ["░░░░░░░░░░", "█░░░░░░░░░", "██░░░░░░░░", "███░░░░░░░", "████░░░░░░", "█████░░░░░", "██████░░░░", "███████░░░", "████████░░", "█████████░", "██████████"];
@@ -32,35 +31,28 @@ Item {
             return Theme.accentRed; // Deeper red for critical
         }
     }
-
-    CornerFrame {
-        id: frame
+    Row {
+        id: contentRow
         anchors.centerIn: parent
-        height: parent.height - 6
+        spacing: 4
 
-        Row {
-            spacing: 4
-
-            Text {
-                text: root.name
-                color: Theme.textPrimaryDim
-                font.family: Theme.fontFamily
-                font.pixelSize: 12
-            }
-
-            Text {
-                text: root.getAsciiBar(root.percentage)
-                color: root.getBarColor(root.percentage)
-                font.family: Theme.fontFamily
-                font.pixelSize: 12
-            }
-
-            Text {
-                text: root.value
-                color: Theme.textPrimary
-                font.family: Theme.fontFamily
-                font.pixelSize: 12
-            }
+        Text {
+            text: root.name
+            color: Theme.textPrimaryDim
+            font.family: Theme.fontFamily
+            font.pixelSize: 12
+        }
+        Text {
+            text: root.getAsciiBar(root.percentage)
+            color: root.getBarColor(root.percentage)
+            font.family: Theme.fontFamily
+            font.pixelSize: 12
+        }
+        Text {
+            text: root.value
+            color: Theme.textPrimary
+            font.family: Theme.fontFamily
+            font.pixelSize: 12
         }
     }
 }

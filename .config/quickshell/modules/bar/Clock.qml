@@ -47,7 +47,7 @@ Item {
             var hours = String(now.getHours()).padStart(2, '0');
             var minutes = String(now.getMinutes()).padStart(2, '0');
             root.timeString = hours + ":" + minutes;
-            
+
             var day = String(now.getDate()).padStart(2, '0');
             var month = String(now.getMonth() + 1).padStart(2, '0');
             var year = now.getFullYear();
