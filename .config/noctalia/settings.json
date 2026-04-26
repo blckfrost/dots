@@ -91,7 +91,7 @@
                     "iconScale": 0.8,
                     "id": "Workspace",
                     "labelMode": "none",
-                    "occupiedColor": "secondary",
+                    "occupiedColor": "tertiary",
                     "pillSize": 0.6,
                     "showApplications": true,
                     "showApplicationsHover": true,
@@ -214,6 +214,15 @@
                     "textColor": "none"
                 },
                 {
+                    "id": "plugin:screen-shot-and-record"
+                },
+                {
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Network",
+                    "textColor": "none"
+                },
+                {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
                     "colorizeSystemText": "none",
@@ -222,9 +231,6 @@
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
-                },
-                {
-                    "id": "plugin:screen-shot-and-record"
                 }
             ]
         }
@@ -376,10 +382,10 @@
         "animationDisabled": false,
         "animationSpeed": 1,
         "autoStartAuth": false,
-        "avatarImage": "/home/frost/.face",
+        "avatarImage": "/home/frost/.face.jpg",
         "boxRadiusRatio": 1,
-        "clockFormat": "hh\\nmm",
-        "clockStyle": "digital",
+        "clockFormat": "hh\\nmmHH:mm ",
+        "clockStyle": "analog",
         "compactLockScreen": false,
         "dimmerOpacity": 0.2,
         "enableBlurBehind": true,
@@ -415,11 +421,11 @@
         "language": "",
         "lockOnSuspend": true,
         "lockScreenAnimations": false,
-        "lockScreenBlur": 0,
+        "lockScreenBlur": 0.65,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
         ],
-        "lockScreenTint": 0,
+        "lockScreenTint": 0.42,
         "passwordChars": false,
         "radiusRatio": 1,
         "reverseScroll": false,
@@ -479,7 +485,7 @@
     },
     "network": {
         "bluetoothAutoConnect": true,
-        "bluetoothDetailsViewMode": "grid",
+        "bluetoothDetailsViewMode": "list",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 60000,
         "bluetoothRssiPollingEnabled": false,
@@ -654,6 +660,10 @@
             {
                 "enabled": true,
                 "id": "hyprtoolkit"
+            },
+            {
+                "enabled": true,
+                "id": "hyprland"
             }
         ],
         "enableUserTheming": false
@@ -664,7 +674,7 @@
         "fontDefaultScale": 1,
         "fontFixed": "JetBrainsMono NF",
         "fontFixedScale": 1,
-        "panelBackgroundOpacity": 0.93,
+        "panelBackgroundOpacity": 0.98,
         "panelsAttachedToBar": true,
         "scrollbarAlwaysVisible": false,
         "settingsPanelMode": "attached",
@@ -681,7 +691,7 @@
         ],
         "fillColor": "#000000",
         "fillMode": "crop",
-        "hideWallpaperFilenames": false,
+        "hideWallpaperFilenames": true,
         "linkLightAndDarkWallpapers": true,
         "monitorDirectories": [
         ],
