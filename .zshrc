@@ -288,7 +288,7 @@ eval "$(starship init zsh)"
 
 # pomodoro timer
 declare -A pomo_options
-pomo_options["work"]="45"
+pomo_options["work"]="30"
 pomo_options["break"]="10"
 
 pomod() {

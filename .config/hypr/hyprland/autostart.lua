@@ -1,0 +1,8 @@
+hl.on("hyprland.start", function()
+	hl.exec_cmd("udiskie")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("hyprpolkit")
+	hl.exec_cmd("hyprpm reload -n")
+	hl.exec_cmd("qs -c noctalia-shell")
+	hl.exec_cmd("$HOME/.config/hypr/scripts/resetxdgportal.sh")
+end)

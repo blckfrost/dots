@@ -45,4 +45,7 @@ format = "[$symbol$version]($style)"
 detect_files = ["package.json"]
 
 [python]
-enabled = true
+pyenv_prefix = "pyenv "
+symbol = "🐍 "
+disabled = false
+detect_extensions = ["py", "ipynb"]
