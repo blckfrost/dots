@@ -1,7 +1,7 @@
 hl.monitor({
-	output = "",
-	mode = "preferred",
-	position = "auto",
+	output = "eDP-1",
+	mode = "1366x768@60",
+	position = "0x0",
 	scale = "auto",
 })
 
@@ -10,7 +10,7 @@ require("hyprland/autostart")
 require("hyprland/general")
 require("hyprland/keybinds")
 require("hyprland/input")
-
-local mainMod = "SUPER"
-
-local terminal = "kitty"
+require("hyprland/windowrules")
+require("hyprland/layerrules")
+require("hyprland/animation")
+require("hyprland/permissions")

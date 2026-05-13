@@ -25,7 +25,7 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
-        "viewMode": "list"
+        "viewMode": "grid"
     },
     "audio": {
         "mprisBlacklist": [
@@ -244,11 +244,11 @@
                 },
                 {
                     "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "none",
+                    "colorizeSystemIcon": "tertiary",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
                     "enableColorization": false,
-                    "icon": "noctalia",
+                    "icon": "hyprland",
                     "id": "ControlCenter",
                     "useDistroLogo": false
                 }
@@ -592,6 +592,27 @@
                 "keybind": "1"
             },
             {
+                "action": "reboot",
+                "command": "",
+                "countdownEnabled": true,
+                "enabled": true,
+                "keybind": "2"
+            },
+            {
+                "action": "shutdown",
+                "command": "",
+                "countdownEnabled": true,
+                "enabled": true,
+                "keybind": "3"
+            },
+            {
+                "action": "logout",
+                "command": "",
+                "countdownEnabled": true,
+                "enabled": true,
+                "keybind": "4"
+            },
+            {
                 "action": "suspend",
                 "command": "",
                 "countdownEnabled": true,
@@ -604,27 +625,6 @@
                 "countdownEnabled": true,
                 "enabled": false,
                 "keybind": ""
-            },
-            {
-                "action": "reboot",
-                "command": "",
-                "countdownEnabled": true,
-                "enabled": true,
-                "keybind": "2"
-            },
-            {
-                "action": "logout",
-                "command": "",
-                "countdownEnabled": true,
-                "enabled": true,
-                "keybind": "3"
-            },
-            {
-                "action": "shutdown",
-                "command": "",
-                "countdownEnabled": true,
-                "enabled": true,
-                "keybind": "4"
             },
             {
                 "action": "rebootToUefi",

@@ -64,4 +64,7 @@ hl.config({
 		preserve_split = true,
 		special_scale_factor = 0.8,
 	},
+	ecosystem = {
+		enforce_permissions = true,
+	},
 })
