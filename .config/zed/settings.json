@@ -7,12 +7,19 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "outline_panel": {
+        "dock": "left"
+    },
+    "collaboration_panel": {
+        "dock": "left"
+    },
     "cursor_blink": true,
     "vim": {
         "toggle_relative_line_numbers": true
     },
     "show_wrap_guides": true,
     "git_panel": {
+        "dock": "left",
         "sort_by_path": false,
         "status_style": "label_color",
         "tree_view": true,
@@ -162,6 +169,7 @@
         "show_user_picture": true,
     },
     "agent": {
+        "dock": "right",
         "favorite_models": [
             {
                 "provider": "copilot_chat",

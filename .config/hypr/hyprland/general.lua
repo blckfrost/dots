@@ -3,7 +3,7 @@ hl.config({
 		gaps_in = 4,
 		gaps_out = 4,
 		border_size = 0,
-		layout = "master",
+		layout = "lua:rectangle",
 		allow_tearing = false,
 		resize_on_border = true,
 
@@ -64,6 +64,11 @@ hl.config({
 		preserve_split = true,
 		special_scale_factor = 0.8,
 	},
+
+	animations = {
+		enabled = true,
+	},
+
 	ecosystem = {
 		enforce_permissions = true,
 	},

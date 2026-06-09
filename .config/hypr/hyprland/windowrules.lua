@@ -25,13 +25,20 @@ hl.window_rule({
 	center = true,
 })
 
+local suppressMaximizeRule = hl.window_rule({
+	name = "suppress-maximize-events",
+	match = { class = ".*" },
+
+	suppress_event = "maximize",
+})
+suppressMaximizeRule:set_enabled(true)
+
 hl.window_rule({
 	match = {
 		class = "^(discord)$",
 	},
 	workspace = "5 silent",
 	float = true,
-	size = "1000 500",
 	center = true,
 })
 
@@ -40,6 +47,15 @@ hl.window_rule({
 		class = "Thunar",
 	},
 	float = true,
-	size = "700 500",
+	size = "700 600",
+	center = true,
+})
+
+hl.window_rule({
+	match = {
+		class = "^(org.pwmt.zathura)$",
+	},
+	float = true,
+	size = "700 730",
 	center = true,
 })

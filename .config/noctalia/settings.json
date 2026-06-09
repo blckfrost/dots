@@ -15,8 +15,8 @@
         "enableSettingsSearch": true,
         "enableWindowsSearch": true,
         "iconMode": "tabler",
-        "ignoreMouseInput": false,
-        "overviewLayer": false,
+        "ignoreMouseInput": true,
+        "overviewLayer": true,
         "pinnedApps": [
         ],
         "position": "center",
@@ -25,7 +25,7 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "alacritty -e",
-        "viewMode": "grid"
+        "viewMode": "list"
     },
     "audio": {
         "mprisBlacklist": [
@@ -175,7 +175,7 @@
                     "blacklist": [
                     ],
                     "chevronColor": "none",
-                    "colorizeIcons": false,
+                    "colorizeIcons": true,
                     "drawerEnabled": false,
                     "hidePassive": false,
                     "id": "Tray",
@@ -232,6 +232,12 @@
                     "textColor": "none"
                 },
                 {
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Bluetooth",
+                    "textColor": "none"
+                },
+                {
                     "defaultSettings": {
                         "autoStartBreaks": false,
                         "autoStartWork": false,
@@ -280,7 +286,7 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "fruit-salad",
+        "generationMethod": "monochrome",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
@@ -365,15 +371,15 @@
     "dock": {
         "animationSpeed": 1,
         "backgroundOpacity": 1,
-        "colorizeIcons": true,
+        "colorizeIcons": false,
         "deadOpacity": 0.6,
         "displayMode": "always_visible",
         "dockType": "floating",
-        "enabled": true,
+        "enabled": false,
         "floatingRatio": 1,
-        "groupApps": false,
-        "groupClickAction": "cycle",
-        "groupContextMenuMode": "extended",
+        "groupApps": true,
+        "groupClickAction": "list",
+        "groupContextMenuMode": "list",
         "groupIndicatorStyle": "dots",
         "inactiveIndicators": false,
         "indicatorColor": "error",
@@ -388,7 +394,8 @@
         ],
         "onlySameOutput": true,
         "pinnedApps": [
-            "thunar"
+            "thunar",
+            "zen"
         ],
         "pinnedStatic": true,
         "position": "bottom",
@@ -607,7 +614,7 @@
             },
             {
                 "action": "logout",
-                "command": "",
+                "command": "hyprshutdown",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "4"
@@ -684,7 +691,7 @@
             },
             {
                 "enabled": true,
-                "id": "hyprland"
+                "id": "starship"
             }
         ],
         "enableUserTheming": false

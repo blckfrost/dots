@@ -18,6 +18,7 @@ hl.bind("SUPER + Print", hl.dsp.exec_cmd(nipc .. " plugin:screen-shot-and-record
 hl.bind("SUPER + C", hl.dsp.exec_cmd(nipc .. " plugin:clipboard toggle"))
 hl.bind("SUPER + A", hl.dsp.exec_cmd(nipc .. " launcher toggle"))
 hl.bind("SUPER + SHIFT + BACKSPACE", hl.dsp.exec_cmd(nipc .. " sessionMenu toggle"))
+hl.bind("CTRL + ESCAPE", hl.dsp.exec_cmd(nipc .. " bar toggle"))
 
 hl.bind("SUPER + F5", hl.dsp.exec_cmd(nipc .. " brightness decrease"))
 hl.bind("SUPER + F6", hl.dsp.exec_cmd(nipc .. " brightness increase"))
@@ -41,12 +42,13 @@ for i = 1, 4 do
 end
 
 -- move focus in direction
-for i = 1, 6 do
-	local arrowkey = { "Left", "Right", "Up", "Down", "BracketLeft", "BracketRight" }
-	local focusdir = { "l", "r", "u", "d", "l", "r" }
+for i = 1, 4 do
+	local arrowkey = { "Left", "Right", "Up", "Down" }
+	local focusdir = { "l", "r", "u", "d" }
 	hl.bind("SUPER + " .. arrowkey[i], hl.dsp.focus({ direction = focusdir[i] }))
 end
 
+-- move to workspace
 for i = 1, 10 do
 	local key = i % 10 -- 10 maps to key 0
 	hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
