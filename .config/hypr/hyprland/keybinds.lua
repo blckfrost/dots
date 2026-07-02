@@ -1,10 +1,11 @@
-local terminal = "kitty"
+local p = require("hyprland.programs")
 local file_manager = "Thunar"
 local nipc = "qs -c noctalia-shell ipc call"
 
+
 -- APPS
-hl.bind("SUPER + Return", hl.dsp.exec_cmd(terminal))
-hl.bind("SUPER + T", hl.dsp.exec_cmd(file_manager))
+hl.bind("SUPER + Return", hl.dsp.exec_cmd(p.terminal))
+hl.bind("SUPER + T", hl.dsp.exec_cmd(p.fileManager))
 hl.bind("SUPER + F", hl.dsp.exec_cmd("zen-browser"))
 hl.bind("SUPER + O", hl.dsp.exec_cmd("obsidian"))
 
@@ -36,23 +37,23 @@ hl.bind("SUPER + ALT + RETURN", hl.dsp.window.fullscreen())
 
 -- move window in direction
 for i = 1, 4 do
-	local arrowkey = { "Left", "Right", "Up", "Down" }
-	local focusdir = { "l", "r", "u", "d" }
-	hl.bind("SUPER + SHIFT + " .. arrowkey[i], hl.dsp.window.move({ direction = focusdir[i] }))
+    local arrowkey = { "Left", "Right", "Up", "Down" }
+    local focusdir = { "l", "r", "u", "d" }
+    hl.bind("SUPER + SHIFT + " .. arrowkey[i], hl.dsp.window.move({ direction = focusdir[i] }))
 end
 
 -- move focus in direction
 for i = 1, 4 do
-	local arrowkey = { "Left", "Right", "Up", "Down" }
-	local focusdir = { "l", "r", "u", "d" }
-	hl.bind("SUPER + " .. arrowkey[i], hl.dsp.focus({ direction = focusdir[i] }))
+    local arrowkey = { "Left", "Right", "Up", "Down" }
+    local focusdir = { "l", "r", "u", "d" }
+    hl.bind("SUPER + " .. arrowkey[i], hl.dsp.focus({ direction = focusdir[i] }))
 end
 
 -- move to workspace
 for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
-	hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind("SUPER + " .. key, hl.dsp.focus({ workspace = i }))
+    hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Move" })

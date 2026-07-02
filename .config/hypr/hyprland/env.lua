@@ -9,6 +9,7 @@ hl.env("HYPRSHOT_DIR", "$HOME/Pictures/Screenshots/")
 
 hl.env("CLUTTER_BACKEND", "wayland")
 -- hl.env("GDK_BACKEND", "wayland", "x11", "*")
+hl.env("GDK_SCALE", "2")
 
 -- Enabling firefox wayland
 hl.env("BROWSER", "zen-browser")
@@ -16,6 +17,6 @@ hl.env("MOZ_ENABLE_WAYLAND", "1")
 
 hl.env("EDITOR", "nvim")
 
-hl.env("QT_QPA_PLATFORMTHEME", "gtk2")
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("QT_STYLE_OVERRIDE", "gtk2")

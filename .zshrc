@@ -146,6 +146,7 @@ alias disk="df -h"
 
 export PATH="$HOME/.local/share/bob/nvim-bin/:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+export PATH="$HOME/.cargo/bin/:$PATH"
 
 export VISUAL="nvim"
 export EDITOR="nvim"
