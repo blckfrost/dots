@@ -120,3 +120,10 @@ hl.on("window.open", function(win)
 		end
 	end, { timeout = 100, type = "oneshot" })
 end)
+
+-- Anything past the 2nd tiled window on a workspace floats
+hl.window_rule({
+	name = "cap-tiled-at-two",
+	match = { workspace = "w[t2-99]" },
+	float = true,
+})

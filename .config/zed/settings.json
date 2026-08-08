@@ -84,9 +84,6 @@
         "show": "always"
     },
     "autosave": "on_focus_change",
-    "notification_panel": {
-        "button": true
-    },
     "cursor_shape": "bar",
     "use_smartcase_search": true,
     "ui_font_weight": 450.0,
@@ -187,7 +184,7 @@
             "model": "claude-sonnet-4.6",
             "enable_thinking": true
         },
-        "play_sound_when_agent_done": true,
+        "play_sound_when_agent_done": "when_hidden",
         "model_parameters": []
     },
     "terminal": {
